@@ -1,0 +1,165 @@
+# Labor Productivity Analysis in Garment Manufacturing
+
+## Overview
+
+This project analyzes the key drivers of labor productivity in garment manufacturing using statistical modeling and economic theory. The objective is to understand how factors such as labor input, task complexity, incentives, and workflow conditions influence productivity.
+
+The study combines **exploratory data analysis (EDA)**, **regression modeling**, and a **Cobb–Douglas-inspired framework** to derive actionable insights.
+
+---
+
+## Problem Statement
+
+What factors significantly influence labor productivity in a manufacturing environment, and how do they interact?
+
+---
+
+##  Dataset
+
+The dataset contains operational variables from garment production units, including:
+
+* `actual_productivity` – Observed productivity (target variable)
+* `smv` – Standard Minute Value (task complexity)
+* `wip` – Work in Progress (inventory)
+* `over_time` – Overtime hours
+* `incentive` – Financial incentives
+* `no_of_workers` – Number of workers
+
+---
+
+## Data Preprocessing
+
+* Cleaned categorical inconsistencies (e.g., department names)
+* Handled missing values in `wip` using mean imputation
+* Created additional variables:
+
+  * `log_prod`, `log_workers` (log transformations)
+  * Optional: interaction terms (e.g., `workers_smv`)
+
+---
+
+## Exploratory Data Analysis
+
+* Correlation matrix to identify linear relationships
+* Scatter plots and distribution analysis
+* Key observation:
+
+  * Weak direct correlation between labor and productivity
+  * Strong influence of task complexity (SMV)
+
+---
+
+## Methodology
+
+### 1. Linear Regression (OLS)
+
+Model:
+
+```
+Productivity = f(SMV, WIP, Overtime, Incentives, Workers)
+```
+
+* Estimated using Ordinary Least Squares (OLS)
+* Statistical significance evaluated using p-values
+
+---
+
+### 2. Cobb–Douglas Inspired Model
+
+To align with economic theory:
+
+```
+log(Productivity) = β₀ + β₁ log(Workers) + β₂ SMV + β₃ WIP + ε
+```
+
+* Interprets coefficients as elasticities (for log variables)
+* Tests conditional effect of labor on productivity
+
+---
+
+##  Key Findings
+
+* **Task Complexity (SMV)**
+  → Strong negative impact on productivity
+  → Higher complexity reduces efficiency
+
+* **Labor Input (Workers)**
+  → Positive but conditional effect
+  → Weak correlation due to interaction with other variables
+
+* **Incentives**
+  → Statistically significant positive effect
+  → Supports behavioral response to monetary rewards
+
+* **Overtime**
+  → No significant impact
+  → Suggests diminishing returns to extended working hours
+
+* **Work in Progress (WIP)**
+  → Positive effect, indicating smoother workflow
+  → Potential non-linear effects (not fully explored)
+
+---
+
+## Key Insight
+
+Labor alone does not determine productivity.
+Instead, productivity is driven by a combination of:
+
+* Task complexity
+* Workflow efficiency
+* Incentives
+* System-level constraints
+
+This highlights the importance of **multi-factor productivity analysis** over simplistic input-output assumptions.
+
+---
+
+## Limitations
+
+* Missing variables such as:
+
+  * Worker skill levels
+  * Machine efficiency
+  * Management practices
+
+* Low R² indicates presence of unobserved factors
+
+* Potential multicollinearity among inputs
+
+---
+
+## Future Work
+
+* Include interaction terms (e.g., Workers × SMV)
+* Test non-linear relationships (e.g., WIP²)
+* Apply advanced models:
+
+  * Ridge / Lasso regression
+  * Panel data models (if time-series available)
+
+---
+
+## Tech Stack
+
+* Python
+* Pandas
+* NumPy
+* Seaborn / Matplotlib
+* Statsmodels
+
+---
+
+## Conclusion
+
+This study demonstrates that productivity in manufacturing is not solely driven by labor input but is significantly influenced by task complexity and system efficiency. The findings provide a foundation for improving operational decision-making in production environments.
+
+---
+
+## Author
+
+Aditya
+Master’s Student – Medical Engineering & Analytics
+Interest Areas: Econometrics, Industrial Systems, Data Analysis
+
+---
