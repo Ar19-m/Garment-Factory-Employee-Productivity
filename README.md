@@ -15,6 +15,7 @@ What factors significantly influence labor productivity in a manufacturing envir
 ---
 
 ## Dataset
+dataset link: https://www.kaggle.com/datasets/arnobsaharoy/garments-worker-productivity
 
 The dataset contains operational variables from garment production units, including:
 
